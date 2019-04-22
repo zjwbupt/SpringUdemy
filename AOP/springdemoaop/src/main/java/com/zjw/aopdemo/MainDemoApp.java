@@ -1,6 +1,8 @@
 package com.zjw.aopdemo;
 
 import com.zjw.aopdemo.dao.AccountDAO;
+import com.zjw.aopdemo.dao.MembershipDAO;
+import com.zjw.aopdemo.entity.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MainDemoApp {
@@ -11,13 +13,16 @@ public class MainDemoApp {
 
         //get the bean from spring container
         AccountDAO theAccountDAO = context.getBean("accountDAO",AccountDAO.class);
+        MembershipDAO theMembershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
 
         //call the business method
-        theAccountDAO.addAccount();
+        Account myAccount = new Account();
+        theAccountDAO.addAccount(myAccount,true);
+        theAccountDAO.addAccount(myAccount);
 
         //check again
         System.out.println("\n Check Again");
-        theAccountDAO.addAccount();
+        theMembershipDAO.addAccount();
 
         //close the context
         context.close();
