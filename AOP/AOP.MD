@@ -34,7 +34,6 @@
   - Too manyaspects and app flow is hard to flow.
   - Minor performance cost for aspect execution
 
-
 ----
 ## AOP Terminology
 - Aspect: module of code for a cross-cutting concern.
@@ -65,3 +64,25 @@
 - AspectJ supports
   - join points: method-level, constructor, field
   - weaving: complie-time, post compile-time and load-time
+
+
+
+
+
+### PointCut Expression
+
+#### Mathcing on method names
+
+- Matching only *AddAccount()* method in *AccountDAO* class
+
+  ```java
+  @Before("execution(public void com.zjw.dao.AccountDAO.addAccount())");
+  ```
+
+- Match Any *AddAccount()* method in any class
+
+  ```java
+  @Before("execution(pulibc void addAccount())");
+  ```
+
+  

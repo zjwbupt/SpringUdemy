@@ -11,7 +11,7 @@ public class MyDemoLoggingAspect {
     //we add all of related advice for logging
 
     //Before advice
-    @Before("execution(* add*(com.zjw.aopdemo.entity.Account, ..))")
+    @Before("execution(* add*(com.zjw.aopdemo.entity.*, ..))")
 //    @Before("execution(public void updateAccount())")
     public void beforeAddAccountAdvice(){
 
